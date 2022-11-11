@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -18,6 +20,8 @@ class FirstFragment : Fragment(), OnItemClickListener {
     private lateinit var galleryList: ArrayList<GalleryModel>
     private lateinit var galleryAdapter: GalleryAdapter
     private var repository = GalleryRepository()
+    private lateinit var outAnimation: Animation
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,6 +35,7 @@ class FirstFragment : Fragment(), OnItemClickListener {
         rvGallery = view.findViewById(R.id.rv_gallery)
         galleryList = repository.getPhotos() as ArrayList<GalleryModel>
         ivPhoto = view.findViewById(R.id.iv_photo)
+//        outAnimation = AnimationUtils.loadAnimation(this, R.anim.alpha_in)
         initialize()
     }
 
